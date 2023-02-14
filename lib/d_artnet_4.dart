@@ -105,10 +105,10 @@ class ArtnetDataPacket implements ArtnetPacket{
   static const lengthIndex = lengthHiIndex + 1;
   static const dataIndex = lengthIndex + 1;
 
-  ByteData packet;
-  Uint8List data;
+  late ByteData packet;
+  late Uint8List data;
 
-  ArtnetDataPacket([List<int> packet, int dmxLength = defaultDataLength]){
+  ArtnetDataPacket([List<int>? packet, int dmxLength = defaultDataLength]){
     this.packet = new ByteData(size + dmxLength);
     if(packet != null){
       for(var i = 0; i < size + dmxLength; i++){
@@ -281,9 +281,9 @@ class ArtnetPollPacket implements ArtnetPacket{
   static const talkToMePollReplyOptionOnlyInResponse = 0;
   static const talkToMePollReplyOptionOnChange = 1;
 
-  ByteData packet;
+  late ByteData packet;
 
-  ArtnetPollPacket([List<int> packet]){
+  ArtnetPollPacket([List<int>? packet]){
     this.packet = new ByteData(size);
     if(packet != null){
       for(var i = 0; i < size; i++){
@@ -486,9 +486,9 @@ class ArtnetPollReplyPacket implements ArtnetPacket {
   static const styleOptionStConfig = 0x05;
   static const styleOptionStVisual = 0x06;
 
-  ByteData packet;
+  late ByteData packet;
 
-  ArtnetPollReplyPacket([List<int> packet]){
+  ArtnetPollReplyPacket([List<int>? packet]){
     this.packet = new ByteData(size);
     if(packet != null){
       for(var i = 0; i < size; i++){
@@ -1068,9 +1068,9 @@ class ArtnetAddressPacket implements ArtnetPacket{
   static const commandOptionClearOp3 = 0x93;
 
 
-  ByteData packet;
+  late ByteData packet;
 
-  ArtnetAddressPacket([List<int> packet]){
+  ArtnetAddressPacket([List<int>? packet]){
     this.packet = new ByteData(size);
     if(packet != null){
       for(var i = 0; i < size; i++){
@@ -1319,9 +1319,9 @@ class ArtnetIpProgPacket implements ArtnetPacket{
   static const commandProgramSubnetMask = 0x02;
   static const commandProgramPortMask = 0x01;
 
-  ByteData packet;
+  late ByteData packet;
 
-  ArtnetIpProgPacket([List<int> packet]){
+  ArtnetIpProgPacket([List<int>? packet]){
     this.packet = new ByteData(size);
     if(packet != null){
       for(var i = 0; i < size; i++){
@@ -1490,9 +1490,9 @@ class ArtnetIpProgReplyPacket implements ArtnetPacket{
   /* Masks */
   static const statusDHCPEnabledMask = 0x40;
 
-  ByteData packet;
+  late ByteData packet;
 
-  ArtnetIpProgReplyPacket([List<int> packet]){
+  ArtnetIpProgReplyPacket([List<int>? packet]){
     this.packet = new ByteData(size);
     if(packet != null){
       for(var i = 0; i < size; i++){
@@ -1626,9 +1626,9 @@ class ArtnetCommandPacket implements ArtnetPacket{
   static const dataIndex = lengthLoIndex + 1;
 
 
-  ByteData packet;
+  late ByteData packet;
 
-  ArtnetCommandPacket([List<int> packet, int dataLength = defaultDataLength]){
+  ArtnetCommandPacket([List<int>? packet, int dataLength = defaultDataLength]){
     this.packet = new ByteData(size + dataLength);
     if(packet != null){
       for(var i = 0; i < size; i++){
@@ -1744,9 +1744,9 @@ class ArtnetSyncPacket implements ArtnetPacket{
   static const aux1Index = ArtnetProtVerLoIndex + 1;
   static const aux2Index = aux1Index + 1;
 
-  ByteData packet;
+  late ByteData packet;
 
-  ArtnetSyncPacket([List<int> packet]){
+  ArtnetSyncPacket([List<int>? packet]){
     this.packet = new ByteData(size);
     if(packet != null){
       for(var i = 0; i < size; i++){
@@ -1827,9 +1827,9 @@ class ArtnetFirmwareMasterPacket implements ArtnetPacket{
   static const blockTypeOptionUbeaCont = 0x04;
   static const blockTypeOptionUbeaLast = 0x05;
 
-  ByteData packet;
+  late ByteData packet;
 
-  ArtnetFirmwareMasterPacket([List<int> packet]){
+  ArtnetFirmwareMasterPacket([List<int>? packet]){
     this.packet = new ByteData(size);
     if(packet != null){
       for(var i = 0; i < size; i++){
@@ -1956,9 +1956,9 @@ class ArtnetFirmwareReplyPacket implements ArtnetPacket{
   static const blockTypeOptionFirmAllGood = 0x01;
   static const blockTypeOptionFirmFail = 0xFF;
 
-  ByteData packet;
+  late ByteData packet;
 
-  ArtnetFirmwareReplyPacket([List<int> packet]){
+  ArtnetFirmwareReplyPacket([List<int>? packet]){
     this.packet = new ByteData(size);
     if(packet != null){
       for(var i = 0; i < size; i++){
@@ -2026,9 +2026,9 @@ class ArtnetBeepBeepPacket implements ArtnetPacket{
   /* Indexes */
   static const uuidIndex = ArtnetOpCodeIndex + 3;
 
-  ByteData packet;
+  late ByteData packet;
 
-  ArtnetBeepBeepPacket([int uuid, List<int> packet]){
+  ArtnetBeepBeepPacket([int? uuid, List<int>? packet]){
     this.packet = new ByteData(size);
     if(packet != null){
       for(var i = 0; i < size; i++){
